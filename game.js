@@ -406,7 +406,7 @@ Ship = function () {
     if (this.bulletCounter > 0) {
       this.bulletCounter -= delta;
     }
-    if (KEY_STATUS.space) {
+    if (KEY_STATUS.shift) {
       if (this.bulletCounter <= 0) {
         this.bulletCounter = 10;
         for (var i = 0; i < this.bullets.length; i++) {
@@ -917,9 +917,9 @@ Game = {
       this.state = 'waiting';
     },
     waiting: function () {
-      Text.renderText(window.ipad ? 'Touch Screen to Start' : 'Press Space to Start', 36, Game.canvasWidth/2 - 270, Game.canvasHeight/2);
-      if (KEY_STATUS.space || window.gameStart) {
-        KEY_STATUS.space = false; // hack so we don't shoot right away
+      Text.renderText(window.ipad ? 'Touch Screen to Start' : 'Press Shift to Start', 36, Game.canvasWidth/2 - 270, Game.canvasHeight/2);
+      if (KEY_STATUS.shift || window.gameStart) {
+        KEY_STATUS.shift = false; // hack so we don't shoot right away
         window.gameStart = false;
         this.state = 'start';
       }
